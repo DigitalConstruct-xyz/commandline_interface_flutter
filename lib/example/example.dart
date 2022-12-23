@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import '../src/cli_behaviorsubject.dart';
 import '../src/cli_interpreter.dart';
-import '../src/commandline_interface.dart';
-
-
-//SET UP BEHAVIOR SUBJECT AND INTERPRETER
-
+import '../src/cli_interface.dart';
 
 class ExampleInterpreter extends CLIInterpreter {
   ExampleInterpreter();
@@ -23,6 +19,7 @@ final CLIInterpreter exampleInterpreter = ExampleInterpreter();
 final CLIBehaviorSubject cliBehaviorSubject = CLIBehaviorSubject(
   init_interpreter: exampleInterpreter,
 );
+final commandLineInterface = CLIInterface(cliBehaviorSubject);
 // CLIInterpreter > CLIBehaviorSubject > CommandLineInterface
 
 void main() {
@@ -48,7 +45,7 @@ class ExamplePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('CommandLine Interface'),
       ),
-      body: CommandLineInterface(cliBehaviorSubject),
+      body: commandLineInterface,
     );
   }
 }

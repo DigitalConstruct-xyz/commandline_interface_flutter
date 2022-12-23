@@ -1,8 +1,4 @@
-
-
-
 import 'package:flutter/material.dart';
-
 import 'config.dart';
 
 cliTextFieldBuilder(Function(String) sink) {

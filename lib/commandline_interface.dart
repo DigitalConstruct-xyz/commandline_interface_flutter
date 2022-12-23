@@ -1,7 +1,3 @@
-library commandline_interface;
-
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/cli_interface.dart';
+export 'src/cli_behaviorsubject.dart';
+export 'src/cli_interpreter.dart';

@@ -1,7 +1,7 @@
 name: commandline_interface
 description: CLI. Minimalist.
 repository: https://github.com/monki1/cli_flutter
-version: 0.0.1
+version: 0.0.3
 homepage:
 
 environment:

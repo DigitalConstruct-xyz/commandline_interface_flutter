@@ -1,12 +1,7 @@
-
 import 'package:flutter/cupertino.dart';
 
 abstract class CLIInterpreter {
   Function(Widget) sink= cliDefaultSink;
-
-  // CLIInterpreter(this._sink);
-  // setSink(Function(Widget) s){sink = s;}
-
   void execute(String command);
 }
 cliDefaultSink(Widget widget) => debugPrint('Unimplemented CLIInterpreter: $widget');

@@ -4,10 +4,10 @@ import 'cli_behaviorsubject.dart';
 import 'cli_display.dart';
 import 'cli_textfield.dart';
 
-class CommandLineInterface extends StatelessWidget{
+class CLIInterface extends StatelessWidget{
   // final CLIInterpreter _interpreter;
   final CLIBehaviorSubject _subject;
-  CommandLineInterface(this._subject);
+  CLIInterface(this._subject);
 
   @override
   Widget build(BuildContext context) {
