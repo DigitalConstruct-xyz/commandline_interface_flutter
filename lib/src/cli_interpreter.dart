@@ -2,10 +2,10 @@
 import 'package:flutter/cupertino.dart';
 
 abstract class CLIInterpreter {
-  Function(Widget) _sink= cliDefaultSink;
+  Function(Widget) sink= cliDefaultSink;
 
   // CLIInterpreter(this._sink);
-  set sink(Function(Widget) sink) => _sink = sink;
+  // setSink(Function(Widget) s){sink = s;}
 
   void execute(String command);
 }
@@ -15,7 +15,7 @@ class UnImplementedCLIInterpreter extends CLIInterpreter {
   UnImplementedCLIInterpreter();
   @override
   void execute(String command) {
-    _sink(
+    sink(
        Container(child: Text('Unimplemented CLIInterpreter'))
     );
   }

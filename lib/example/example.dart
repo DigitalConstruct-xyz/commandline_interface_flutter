@@ -5,13 +5,27 @@ import '../src/commandline_interface.dart';
 
 
 //SET UP BEHAVIOR SUBJECT AND INTERPRETER
-final CLIInterpreter cliInterpreter = UnImplementedCLIInterpreter();
+
+
+class ExampleInterpreter extends CLIInterpreter {
+  ExampleInterpreter();
+  @override
+  void execute(String command) {
+    sink(
+      Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
+    );
+    sink(
+      Container(child: Text('output >>  $command'))
+    );
+  }
+}
+final CLIInterpreter exampleInterpreter = ExampleInterpreter();
 final CLIBehaviorSubject cliBehaviorSubject = CLIBehaviorSubject(
-  init_interpreter: cliInterpreter,
+  init_interpreter: exampleInterpreter,
 );
+// CLIInterpreter > CLIBehaviorSubject > CommandLineInterface
 
 void main() {
-  cliBehaviorSubject.interpreter = cliInterpreter;
   runApp(MyApp());
 }
 
@@ -21,27 +35,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Minimalist Flutter Template',
       theme: ThemeData.dark(),
-      home: MyHomePage(),
+      home: ExamplePage(),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final CLIBehaviorSubject subject;
-  // MyHomePage() {
-  //   _subject.interpreter = UnImplementedCLIInterpreter(_subject.addToDisplayFunction);
-  // }
-  MyHomePage({Key? key, CLIBehaviorSubject? subject}) : subject = subject ?? cliBehaviorSubject, super(key: key);
+class ExamplePage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
-
-    //set up a example interpreter
-
     return Scaffold(
       appBar: AppBar(
         title: Text('CommandLine Interface'),
       ),
-      body: CommandLineInterface(subject),
+      body: CommandLineInterface(cliBehaviorSubject),
     );
   }
 }
