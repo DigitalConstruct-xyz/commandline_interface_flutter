@@ -7,12 +7,12 @@ import 'cli_interpreter.dart';
 // init interpreter with get addToDisplayFunc,
 // set interpreter
 
-class CLIBehaviorSubject {
+class CLIController {
   final BehaviorSubject<List<Widget>> _subject;
   List<Widget> _content = [];
   late CLIInterpreter _interpreter;
   //create unImplementedCLIInterpreter in initializer
-  CLIBehaviorSubject({List<Widget>? content, CLIInterpreter? init_interpreter})
+  CLIController({List<Widget>? content, CLIInterpreter? init_interpreter})
   : _subject = BehaviorSubject<List<Widget>>.seeded(content ?? []),
     _content = content ?? []{
     interpreter = init_interpreter ?? UnImplementedCLIInterpreter();

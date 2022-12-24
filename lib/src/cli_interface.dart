@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'cli_behaviorsubject.dart';
+import 'cli_controller.dart';
 import 'cli_display.dart';
 import 'cli_textfield.dart';
 
 class CLIInterface extends StatelessWidget{
   // final CLIInterpreter _interpreter;
-  final CLIBehaviorSubject _subject;
+  final CLIController _subject;
   CLIInterface(this._subject);
 
   @override

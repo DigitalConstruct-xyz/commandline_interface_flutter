@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../src/cli_behaviorsubject.dart';
-import '../src/cli_interpreter.dart';
-import '../src/cli_interface.dart';
+import '../lib/src/cli_controller.dart';
+import '../lib/src/cli_interpreter.dart';
+import '../lib/src/cli_interface.dart';
 
 class ExampleInterpreter extends CLIInterpreter {
   ExampleInterpreter();
@@ -16,10 +16,10 @@ class ExampleInterpreter extends CLIInterpreter {
   }
 }
 final CLIInterpreter exampleInterpreter = ExampleInterpreter();
-final CLIBehaviorSubject cliBehaviorSubject = CLIBehaviorSubject(
+final CLIController cliBehaviorSubject = CLIController(
   init_interpreter: exampleInterpreter,
 );
-final commandLineInterface = CLIInterface(cliBehaviorSubject);
+final CLIInterface commandLineInterface = CLIInterface(cliBehaviorSubject);
 // CLIInterpreter > CLIBehaviorSubject > CommandLineInterface
 
 void main() {

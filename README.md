@@ -10,7 +10,28 @@ Then pass the CLIBehaviorSubject object to the CommandLineInterface constructor.
 
 
 ## Usage
-    see example
+CLIInterpreter > CLIController > CLIInterface
+```
+class ExampleInterpreter extends CLIInterpreter {
+  ExampleInterpreter();
+  @override
+  //this function is called on textField Submission
+  void execute(String command) {
+    //adding widget to the screen
+    sink(
+      Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
+    );
+    sink(
+      Container(child: Text('output >>  $command'))
+    );
+  }
+}
+final CLIInterpreter exampleInterpreter = ExampleInterpreter();
+final CLIController cliBehaviorSubject = CLIController(
+  init_interpreter: exampleInterpreter,
+);
+final CLIInterface commandLineInterface = CLIInterface(cliBehaviorSubject);
+```
 
 ## Additional information
 
