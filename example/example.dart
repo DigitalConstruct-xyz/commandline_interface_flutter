@@ -18,16 +18,14 @@ class ExampleManager extends CLIManagerBase {
           Container(child: Text('output >>  $command'))
       );
     }
-
-
   }
 }
 final CLIManagerBase exampleManager = ExampleManager();
 final CLIController cliBehaviorSubject = CLIController(
   initManager: exampleManager,
 );
-final CLIWidget commandLineInterface = CLIWidget(cliBehaviorSubject);
-// CLIInterpreterMinimal > CLIController > CLIInterface
+final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
+// CLIManagerBase > CLIController > CLIWidget
 
 void main() {
   runApp(MyApp());
@@ -50,9 +48,9 @@ class ExamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CommandLine Interface'),
+        title: Text('CommandLineInterface'),
       ),
-      body: commandLineInterface,
+      body: cliWidget,
     );
   }
 }

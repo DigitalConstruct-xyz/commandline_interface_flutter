@@ -1,48 +1,60 @@
-[//]: # ADD CLI Commands: clear, esc
-
-
-
 ## Features
-A CommandLine Interface widget that takes in a class CLIInterpreter Object.
+A CommandLineInterface for Flutter
+
 
 ## Getting started
-// CLIInterpreter > CLIBehaviorSubject > CommandLineInterface
-Make ^ a CLIInterpreter object and pass it to the CLIBehaviorSubject constructor.
-Then pass the CLIBehaviorSubject object to the CommandLineInterface constructor.
+add this to your pubspec.yaml
+```yaml
+    dependencies:
+      commandline_interface:
+        git:
+            url: https://github.com/monki1/commandline_interface_flutter.git
+            ref: main
+```
+    
+run the example file in the example folder.
 
 
 
 ## Usage
-CLIInterpreter > CLIController > CLIInterface
-```
-import 'package:commandline_interface/commandline_interface.dart';
-import 'package:flutter/material.dart';
-
-
-class ExampleInterpreter extends CLIInterpreterMinimal {
-  ExampleInterpreter();
-  @override
-  void execute(String command) {
-    //USE function SINK TO ADD WIDGETS TO DISPLAY
-    //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
-    sink(
-      Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
+CLIManagerBase > CLIController > CLIWidget
+```dart
+    import 'package:commandline_interface/commandline_interface.dart';
+    import 'package:flutter/material.dart';
+    
+    
+    class ExampleManager extends CLIManagerBase {
+      ExampleManager();
+      @override
+      void execute(String command) {
+        if(command == 'clear'){
+          //clears the screen
+          clear();
+        } else {
+          //USE function SINK TO ADD WIDGETS TO DISPLAY
+          //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
+          sink(
+              Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
+          );
+          sink(
+              Container(child: Text('output >>  $command'))
+          );
+        }
+    
+    
+      }
+    }
+    final CLIManagerBase exampleManager = ExampleManager();
+    final CLIController cliBehaviorSubject = CLIController(
+      initManager: exampleManager,
     );
-    sink(
-      Container(child: Text('output >>  $command'))
-    );
-  }
-}
-final CLIInterpreterMinimal exampleInterpreter = ExampleInterpreter();
-final CLIController cliBehaviorSubject = CLIController(
-  init_interpreter: exampleInterpreter,
-);
-final CLIInterface commandLineInterface = CLIInterface(cliBehaviorSubject);
-// CLIInterpreterMinimal > CLIController > CLIInterface
+    final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
+    // CLIManagerBase > CLIController > CLIWidget
+    
 
 ```
-Add the commandLineInterface to your widget tree.
-```
+Add the cliWidget to your widget tree.
+```dart
 void main() {
   runApp(MyApp());
 }
@@ -63,9 +75,9 @@ class ExamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('CommandLine Interface'),
+        title: Text('CommandLineInterface'),
       ),
-      body: commandLineInterface,
+      body: cliWidget,
     );
   }
 }
