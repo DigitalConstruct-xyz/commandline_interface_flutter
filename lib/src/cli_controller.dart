@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:flutter/material.dart';
 
-import 'cli_interpreter.dart';
+import 'cli_manager.dart';
 
 //USAGE: init,
 // init interpreter with get addToDisplayFunc,
@@ -10,12 +10,12 @@ import 'cli_interpreter.dart';
 class CLIController {
   final BehaviorSubject<List<Widget>> _subject;
   List<Widget> _content = [];
-  late CLIInterpreterMinimal _interpreter;
+  late CLIManagerBase _manager;
   //create unImplementedCLIInterpreter in initializer
-  CLIController({List<Widget>? content, CLIInterpreterMinimal? init_interpreter})
+  CLIController({List<Widget>? content, CLIManagerBase? initManager})
   : _subject = BehaviorSubject<List<Widget>>.seeded(content ?? []),
     _content = content ?? []{
-    interpreter = init_interpreter ?? UnImplementedCLIInterpreter();
+    manager = initManager ?? UnImplementedCLIManager();
   }
   Stream<List<Widget>> get stream => _subject.stream;
 
@@ -26,15 +26,16 @@ class CLIController {
   Function(Widget) get addToDisplayFunction => _add;
 
   void input(String s) {
-    _interpreter.execute(s);
+    _manager.execute(s);
   }
   void clear() {
     _content = [];
     _subject.add(_content);
   }
-  set interpreter(CLIInterpreterMinimal interpreter){
-    _interpreter = interpreter;
-    _interpreter.sink = addToDisplayFunction;
+  set manager(CLIManagerBase interpreter){
+    _manager = interpreter;
+    _manager.sink = addToDisplayFunction;
+    _manager.clear = clear;
   }
 
   void dispose() => _subject.close();

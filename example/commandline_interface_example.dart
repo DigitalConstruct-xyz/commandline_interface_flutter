@@ -2,8 +2,8 @@ import 'package:commandline_interface/commandline_interface.dart';
 import 'package:flutter/material.dart';
 
 
-class ExampleInterpreter extends CLIInterpreterMinimal {
-  ExampleInterpreter();
+class ExampleManager extends CLIManagerBase {
+  ExampleManager();
   @override
   void execute(String command) {
     //USE function SINK TO ADD WIDGETS TO DISPLAY
@@ -16,11 +16,11 @@ class ExampleInterpreter extends CLIInterpreterMinimal {
     );
   }
 }
-final CLIInterpreterMinimal exampleInterpreter = ExampleInterpreter();
+final CLIManagerBase exampleManager = ExampleManager();
 final CLIController cliBehaviorSubject = CLIController(
-  init_interpreter: exampleInterpreter,
+  initManager: exampleManager,
 );
-final CLIInterface commandLineInterface = CLIInterface(cliBehaviorSubject);
+final CLIWidget commandLineInterface = CLIWidget(cliBehaviorSubject);
 // CLIInterpreterMinimal > CLIController > CLIInterface
 
 void main() {
