@@ -6,6 +6,8 @@ class ExampleInterpreter extends CLIInterpreterMinimal {
   ExampleInterpreter();
   @override
   void execute(String command) {
+    //USE function SINK TO ADD WIDGETS TO DISPLAY
+    //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
     sink(
       Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
     );
@@ -19,7 +21,7 @@ final CLIController cliBehaviorSubject = CLIController(
   init_interpreter: exampleInterpreter,
 );
 final CLIInterface commandLineInterface = CLIInterface(cliBehaviorSubject);
-// CLIInterpreter > CLIBehaviorSubject > CommandLineInterface
+// CLIInterpreterMinimal > CLIController > CLIInterface
 
 void main() {
   runApp(MyApp());

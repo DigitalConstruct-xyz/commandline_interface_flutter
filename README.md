@@ -15,12 +15,16 @@ Then pass the CLIBehaviorSubject object to the CommandLineInterface constructor.
 ## Usage
 CLIInterpreter > CLIController > CLIInterface
 ```
-class ExampleInterpreter extends CLIInterpreter {
+import 'package:commandline_interface/commandline_interface.dart';
+import 'package:flutter/material.dart';
+
+
+class ExampleInterpreter extends CLIInterpreterMinimal {
   ExampleInterpreter();
   @override
-  //this function is called on textField Submission
   void execute(String command) {
-    //adding widget to the screen
+    //USE function SINK TO ADD WIDGETS TO DISPLAY
+    //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
     sink(
       Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
     );
@@ -29,11 +33,42 @@ class ExampleInterpreter extends CLIInterpreter {
     );
   }
 }
-final CLIInterpreter exampleInterpreter = ExampleInterpreter();
+final CLIInterpreterMinimal exampleInterpreter = ExampleInterpreter();
 final CLIController cliBehaviorSubject = CLIController(
   init_interpreter: exampleInterpreter,
 );
 final CLIInterface commandLineInterface = CLIInterface(cliBehaviorSubject);
+// CLIInterpreterMinimal > CLIController > CLIInterface
+
+```
+Add the commandLineInterface to your widget tree.
+```
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Minimalist Flutter Template',
+      theme: ThemeData.dark(),
+      home: ExamplePage(),
+    );
+  }
+}
+
+class ExamplePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('CommandLine Interface'),
+      ),
+      body: commandLineInterface,
+    );
+  }
+}
 ```
 
 ## Additional information
