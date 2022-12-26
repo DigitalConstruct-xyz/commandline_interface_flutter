@@ -6,14 +6,20 @@ class ExampleManager extends CLIManagerBase {
   ExampleManager();
   @override
   void execute(String command) {
-    //USE function SINK TO ADD WIDGETS TO DISPLAY
-    //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
-    sink(
-      Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
-    );
-    sink(
-      Container(child: Text('output >>  $command'))
-    );
+    if(command == 'clear'){
+      clear();
+    } else {
+      //USE function SINK TO ADD WIDGETS TO DISPLAY
+      //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
+      sink(
+          Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
+      );
+      sink(
+          Container(child: Text('output >>  $command'))
+      );
+    }
+
+
   }
 }
 final CLIManagerBase exampleManager = ExampleManager();
