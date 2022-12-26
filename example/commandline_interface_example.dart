@@ -1,9 +1,8 @@
+import 'package:commandline_interface/commandline_interface.dart';
 import 'package:flutter/material.dart';
-import '../lib/src/cli_controller.dart';
-import '../lib/src/cli_interpreter.dart';
-import '../lib/src/cli_interface.dart';
 
-class ExampleInterpreter extends CLIInterpreter {
+
+class ExampleInterpreter extends CLIInterpreterMinimal {
   ExampleInterpreter();
   @override
   void execute(String command) {
@@ -15,7 +14,7 @@ class ExampleInterpreter extends CLIInterpreter {
     );
   }
 }
-final CLIInterpreter exampleInterpreter = ExampleInterpreter();
+final CLIInterpreterMinimal exampleInterpreter = ExampleInterpreter();
 final CLIController cliBehaviorSubject = CLIController(
   init_interpreter: exampleInterpreter,
 );

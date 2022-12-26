@@ -1,3 +1,6 @@
+[//]: # ADD CLI Commands: clear, esc
+
+
 
 ## Features
 A CommandLine Interface widget that takes in a class CLIInterpreter Object.
