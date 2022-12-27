@@ -64,6 +64,9 @@ final CLIManagerBase exampleManager = ExampleManager();
 final CLIController cliBehaviorSubject = CLIController(initManager: exampleManager);
 final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
 // CLIManagerBase > CLIController > CLIWidget
+//Alternatively, 
+//you can use the cliWidgetGenerator function to generate a CLIWidget:
+// final CLIWidget cliWidget = cliWidgetGenerator(ExampleManager());
 ```
  - step 4:  Add the cliWidget to your widget tree.
 ```dart
