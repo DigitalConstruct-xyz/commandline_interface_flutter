@@ -1,6 +1,6 @@
 ## Features
-A Simple CLI for Flutter.\n
-Can be implemented in less than 20 lines of extra code.
+- A Simple CLI widget for Flutter that
+- can be implemented in LESS THAN 20 LINES of extra code.
 
 
 ## Getting started
@@ -21,9 +21,12 @@ NOTE: This package is also available on pub.dev, but it is not recommended to us
 ## Usage
 Steps:
  - 1: Create a new class that extends the CLIManagerBase class
- - 2: Create then Add an instance of your class to the CLIController constructor
+   - override the `execute(String command)` method
+     - use `sink` to add WIDGET to the CLI
+     - use `clear()` to clear the CLI
+ - 2: Create then Add an instance of the new class to the CLIController constructor
  - 3: Add the CLIController instance to CLIWidget constructor
- - 4: Add the CLIWidget to widget tree
+ - 4: Add the CLIWidget instance to widget tree
 
   Structure:  CLIManagerBase > CLIController > CLIWidget > MaterialApp
 
