@@ -52,7 +52,7 @@ class ExampleManager extends CLIManagerBase {
           Container(child: Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),))
       );
       sink(
-          Container(child: Text('OUTPUT:  $command'))
+          Container(child: Text('OUTPUT: the user has entered "$command"'))
       );
     }
   }

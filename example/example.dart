@@ -18,16 +18,18 @@ class ExampleManager extends CLIManagerBase {
           Container(child: Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),))
       );
       sink(
-          Container(child: Text('OUTPUT:  $command'))
+          Container(child: Text('OUTPUT: the user has entered "$command"'))
       );
     }
   }
 }
 
-final CLIManagerBase exampleManager = ExampleManager();
-final CLIController cliBehaviorSubject = CLIController(initManager: exampleManager);
-final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
+// final CLIManagerBase exampleManager = ExampleManager();
+// final CLIController cliBehaviorSubject = CLIController(initManager: exampleManager);
+// final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
 // CLIManagerBase > CLIController > CLIWidget
+//Alternatively, you can use the cliWidgetGenerator function to generate a CLIWidget
+final CLIWidget cliWidget = cliWidgetGenerator(ExampleManager());
 
 void main() {
   runApp(MyApp());
