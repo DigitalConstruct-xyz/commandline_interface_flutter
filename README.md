@@ -94,8 +94,14 @@ class ExamplePage extends StatelessWidget {
   }
 }
 ```
+NOTE: the example above is RUNNABLE. 
+- It's a very basic example, but it shows the basic usage of the package.
 
 ## Additional information
-
+InputDecoration for the TextField can be set in `lib/src/config.dart`
 ## License
-    MIT, 
+MIT, see LICENSE file for details.
+- If you use this package, please let me know, I would love to see what you made with it.
+- If you have any questions, feel free to contact me.
+- If you want to offer me a job, please email
+```KXYE111@gmail.com``` asap, I need a job.
