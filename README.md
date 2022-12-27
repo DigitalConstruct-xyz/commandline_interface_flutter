@@ -42,9 +42,12 @@ class ExampleManager extends CLIManagerBase {
     if(command == 'clear'){
       //clears the screen
       clear();
+      //METHOD clear IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
+      //it uses clear function of CLIController
     } else {
       //USE function SINK TO ADD WIDGETS TO DISPLAY
-      //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
+      //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
+      //it uses addToDisplayFunction of CLIController
       sink(
           Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
       );
@@ -95,4 +98,4 @@ class ExamplePage extends StatelessWidget {
 ## Additional information
 
 ## License
-    MIT
+    MIT, 
