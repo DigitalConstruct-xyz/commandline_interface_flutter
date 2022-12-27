@@ -3,10 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'cli_manager.dart';
 
-//USAGE: init,
-// init interpreter with get addToDisplayFunc,
-// set interpreter
-
 class CLIController {
   final BehaviorSubject<List<Widget>> _subject;
   List<Widget> _content = [];

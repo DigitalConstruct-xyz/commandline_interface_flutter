@@ -18,6 +18,5 @@ cliTextFieldBuilder(Function(String) sink) {
     ),
     decoration: INPUT_DECORATION,
   );
-
 }
 
