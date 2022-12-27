@@ -1,9 +1,10 @@
 ## Features
-A CommandLineInterface for Flutter
+A Simple CLI for Flutter.
+Can be implemented in less than 20 lines of extra code.
 
 
 ## Getting started
-add this to your pubspec.yaml
+add this to your pubspec.yaml, then run `pub get`:
 ```yaml
     dependencies:
       commandline_interface:
@@ -12,16 +13,21 @@ add this to your pubspec.yaml
             ref: main
 ```
     
-run the example file in the example folder.
+
 
 
 
 ## Usage
+ - 1 Create a new class that extends the CLIManagerBase class
+ - 2 Create then Add an instance of your class to the CLIController constructor
+ - 3 Add the CLIController instance to CLIWidget constructor
+ - 4 Add the CLIWidget to widget tree
 CLIManagerBase > CLIController > CLIWidget
+
+ - 1 
 ```dart
     import 'package:commandline_interface/commandline_interface.dart';
     import 'package:flutter/material.dart';
-    
     
     class ExampleManager extends CLIManagerBase {
       ExampleManager();
@@ -32,7 +38,7 @@ CLIManagerBase > CLIController > CLIWidget
           clear();
         } else {
           //USE function SINK TO ADD WIDGETS TO DISPLAY
-          //SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
+          //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of interpreter
           sink(
               Container(child: Text('\$input: $command', style: TextStyle(color: Colors.greenAccent),))
           );
@@ -40,20 +46,17 @@ CLIManagerBase > CLIController > CLIWidget
               Container(child: Text('output >>  $command'))
           );
         }
-    
-    
       }
     }
+```
+ - 2 & 3
+```dart
     final CLIManagerBase exampleManager = ExampleManager();
-    final CLIController cliBehaviorSubject = CLIController(
-      initManager: exampleManager,
-    );
+    final CLIController cliBehaviorSubject = CLIController(initManager: exampleManager);
     final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
     // CLIManagerBase > CLIController > CLIWidget
-    
-
 ```
-Add the cliWidget to your widget tree.
+ - 4 Add the cliWidget to your widget tree.
 ```dart
 void main() {
   runApp(MyApp());
