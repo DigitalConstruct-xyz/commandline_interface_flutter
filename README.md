@@ -49,10 +49,10 @@ class ExampleManager extends CLIManagerBase {
       //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
       //it uses addToDisplayFunction of CLIController
       sink(
-          Container(child: Text('>>>: $command', style: TextStyle(color: Colors.greenAccent),))
+          Container(child: Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),))
       );
       sink(
-          Container(child: Text('\\>:  $command'))
+          Container(child: Text('OUTPUT:  $command'))
       );
     }
   }
