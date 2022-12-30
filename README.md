@@ -5,8 +5,12 @@
 
 ## Getting started
 add this to your pubspec.yaml, then run `pub get`:
+Under
 ```yaml
 dependencies:
+```
+Add
+```yaml
   commandline_interface:
     git:
         url: https://github.com/monki1/commandline_interface_flutter.git

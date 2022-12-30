@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import 'cli_manager.dart';
 
-class CLIController {
+class CLIDisplayController {
   final BehaviorSubject<List<Widget>> _subject;
   List<Widget> _content = [];
   late CLIManagerBase _manager;
   //create unImplementedCLIInterpreter in initializer
-  CLIController({List<Widget>? content, CLIManagerBase? initManager})
+  CLIDisplayController({List<Widget>? content, CLIManagerBase? initManager})
   : _subject = BehaviorSubject<List<Widget>>.seeded(content ?? []),
     _content = content ?? []{
     manager = initManager ?? UnImplementedCLIManager();
@@ -21,9 +21,9 @@ class CLIController {
   }//
   Function(Widget) get addToDisplayFunction => _add;
 
-  void input(String s) {
-    _manager.execute(s);
-  }
+  // void input(String s) {
+  //   _manager.execute(s);
+  // }
   void clear() {
     _content = [];
     _subject.add(_content);
@@ -32,6 +32,7 @@ class CLIController {
     _manager = interpreter;
     _manager.sink = addToDisplayFunction;
     _manager.clear = clear;
+    //managere textfieldSink, get lastInputHistoryByID
   }
 
   void dispose() => _subject.close();
