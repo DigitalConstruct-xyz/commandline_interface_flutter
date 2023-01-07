@@ -1,6 +1,6 @@
 ## Features
 - A Simple CLI widget for Flutter that
-- can be implemented in LESS THAN 20 LINES of extra code.
+- can be implemented in 20 lines of code.
 
 
 ## Getting started
@@ -52,24 +52,20 @@ class ExampleManager extends CLIManagerBase {
       //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
       //it uses addToDisplayFunction of CLIController
       sink(
-          Container(child: Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),))
+          Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),)
       );
       sink(
-          Container(child: Text('OUTPUT: the user has entered "$command"'))
+          Text('OUTPUT: the user has entered "$command"')
       );
+      //ADD TEXT TO TEXT FIELD
+      textFieldSink(command.toUpperCase());
     }
   }
 }
 ```
- - step 2 & 3:
+ - step 2 + 3:
 ```dart
-final CLIManagerBase exampleManager = ExampleManager();
-final CLIController cliBehaviorSubject = CLIController(initManager: exampleManager);
-final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
-// CLIManagerBase > CLIController > CLIWidget
-//Alternatively, 
-//you can use the cliWidgetGenerator function to generate a CLIWidget:
-// final CLIWidget cliWidget = cliWidgetGenerator(ExampleManager());
+final CLIWidget cliWidget = cliWidgetGenerator(ExampleManager());
 ```
  - step 4:  Add the cliWidget to your widget tree.
 ```dart
@@ -100,7 +96,7 @@ class ExamplePage extends StatelessWidget {
   }
 }
 ```
-NOTE: the example above is RUNNABLE. 
+NOTE: the example above is functional. 
 - It's a very basic example, but it shows the basic usage of the package.
 
 ## Additional information

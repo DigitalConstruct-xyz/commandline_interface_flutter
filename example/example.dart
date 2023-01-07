@@ -20,6 +20,8 @@ class ExampleManager extends CLIManagerBase {
       sink(
           Container(child: Text('OUTPUT: the user has entered "$command"'))
       );
+      //ADD TEXT TO TEXT FIELD
+      textFieldSink(command.toUpperCase());
     }
   }
 }

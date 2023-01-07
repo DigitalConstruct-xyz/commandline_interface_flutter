@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 
 abstract class CLIManagerBase {
   Function(Widget) sink= cliDefaultSink;
+  Function(String) textFieldSink = cliDefaultTextFieldSink;
   void Function() clear = cliDefaultClear;
   void execute(String command);
 }
-cliDefaultSink(Widget widget) => debugPrint('Unimplemented CLIInterpreter: $widget');
-cliDefaultClear() => debugPrint('Unimplemented CLIInterpreter: clear');
+cliDefaultSink(Widget widget) => debugPrint('Unimplemented: $widget');
+cliDefaultClear() => debugPrint('Unimplemented: clear');
+cliDefaultTextFieldSink(String s) => debugPrint('Unimplemented: $s');
 
 class UnImplementedCLIManager extends CLIManagerBase {
   UnImplementedCLIManager();
