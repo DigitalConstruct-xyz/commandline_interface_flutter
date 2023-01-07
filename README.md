@@ -25,8 +25,10 @@ NOTE: This package is also available on pub.dev, but it is not recommended to us
 Steps:
  - 1: Create a new class that extends the CLIManagerBase class
    - override the `execute(String command)` method
-     - use `sink` to add WIDGET to the CLI
-     - use `clear()` to clear the CLI
+     - this is where you will implement the logic of your CLI
+       - use `sink(Widget)` to add widget to the CLI
+       - use `clear()` to clear the CLI
+       - use `sinkTextField(String text)` to add text to the text field
  - 2: Create then Add an instance of the new class to the CLIController constructor
  - 3: Add the CLIController instance to CLIWidget constructor
  - 4: Add the CLIWidget instance to widget tree
