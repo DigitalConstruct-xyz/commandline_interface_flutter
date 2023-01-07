@@ -29,11 +29,10 @@ Steps:
        - use `sink(Widget)` to add widget to the CLI
        - use `clear()` to clear the CLI
        - use `sinkTextField(String text)` to add text to the text field
- - 2: Create then Add an instance of the new class to the CLIController constructor
- - 3: Add the CLIController instance to CLIWidget constructor
+ - 2: Create an instance of the new class
+ - 3: Add the instance to CLI Widget Generator
+   - `CLIWidget cli = CLIWidgetGenerator(CLIManagerBase: instance)`
  - 4: Add the CLIWidget instance to widget tree
-
-  Structure:  CLIManagerBase > CLIController > CLIWidget > MaterialApp
 
  - step 1:
 ```dart
