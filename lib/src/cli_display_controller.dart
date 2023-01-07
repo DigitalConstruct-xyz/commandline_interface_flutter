@@ -7,7 +7,6 @@ class CLIDisplayController {
   final BehaviorSubject<List<Widget>> _subject;
   List<Widget> _content = [];
   late CLIManagerBase _manager;
-  //create unImplementedCLIInterpreter in initializer
   CLIDisplayController({List<Widget>? content, CLIManagerBase? initManager})
   : _subject = BehaviorSubject<List<Widget>>.seeded(content ?? []),
     _content = content ?? []{
@@ -21,9 +20,6 @@ class CLIDisplayController {
   }//
   Function(Widget) get addToDisplayFunction => _add;
 
-  // void input(String s) {
-  //   _manager.execute(s);
-  // }
   void clear() {
     _content = [];
     _subject.add(_content);
@@ -32,7 +28,6 @@ class CLIDisplayController {
     _manager = interpreter;
     _manager.sink = addToDisplayFunction;
     _manager.clear = clear;
-    //managere textfieldSink, get lastInputHistoryByID
   }
 
   void dispose() => _subject.close();

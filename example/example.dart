@@ -24,11 +24,7 @@ class ExampleManager extends CLIManagerBase {
   }
 }
 
-// final CLIManagerBase exampleManager = ExampleManager();
-// final CLIController cliBehaviorSubject = CLIController(initManager: exampleManager);
-// final CLIWidget cliWidget = CLIWidget(cliBehaviorSubject);
-// CLIManagerBase > CLIController > CLIWidget
-//Alternatively, you can use the cliWidgetGenerator function to generate a CLIWidget
+// use cliWidgetGenerator function to generate a CLIWidget
 final CLIWidget cliWidget = cliWidgetGenerator(ExampleManager());
 
 void main() {

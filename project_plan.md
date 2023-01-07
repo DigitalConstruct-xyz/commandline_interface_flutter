@@ -19,8 +19,9 @@ int getLastInputHistoryID(){
 [//]: # (```)
 
 ### Text Field Sink
+
 ```dart
-void sinkTextField(String tex){
+void sinkTextFieldCompletion(String tex) {
   //sink text to text field
 }
 ```

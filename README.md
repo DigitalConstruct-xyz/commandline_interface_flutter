@@ -4,12 +4,11 @@
 
 
 ## Getting started
-add this to your pubspec.yaml, then run `pub get`:
-Under
-```yaml
+In your pubspec.yaml, under
+`
 dependencies:
-```
-Add
+`
+add
 ```yaml
   commandline_interface:
     git:
