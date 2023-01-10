@@ -28,7 +28,7 @@ Steps:
      - this is where you will implement the logic of your CLI
        - use `sink(Widget)` to add widget to the CLI
        - use `clear()` to clear the CLI
-       - use `sinkTextField(String text)` to add text to the text field
+       - use `sinkTextField(String text)` to add text to the input text field
  - 2: Create an instance of the new class
  - 3: Add the instance to CLI Widget Generator
    - `CLIWidget cli = CLIWidgetGenerator(CLIManagerBase: instance)`

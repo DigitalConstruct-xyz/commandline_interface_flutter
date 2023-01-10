@@ -2,29 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'config.dart';
 
-cliTextFieldBuilder(BehaviorSubject<String> inputStream, BehaviorSubject<String> outputStream) {
+cliTextFieldBuilder(BehaviorSubject<String> inputStream, BehaviorSubject<String> autoFillStream, BehaviorSubject<String> onChangedStream) {
   //change to take stream, then sink the stream
   //
-  TextEditingController _controller = TextEditingController();
+  TextEditingController controller = TextEditingController();
   //update the stream with the text
-  outputStream.listen((String s) {
-    _controller.text = s;
+  autoFillStream.listen((String s) {
+    controller.text = s;
     //move cursor to end
-    _controller.selection = TextSelection.fromPosition(
-        TextPosition(offset: _controller.text.length)
+    controller.selection = TextSelection.fromPosition(
+        TextPosition(offset: controller.text.length)
     );
   });
-  FocusNode _focusNode = FocusNode();
+  FocusNode focusNode = FocusNode();
 
   return TextField(
     onSubmitted: (String s){
-      _controller.clear();
-      _focusNode.requestFocus();//keep focused
+      controller.clear();
+      focusNode.requestFocus();//keep focused
       inputStream.add(s);
     },
-    focusNode: _focusNode,
+    onChanged: (String s){
+      onChangedStream.add(s);
+    },
+    focusNode: focusNode,
     autofocus: true,
-    controller: _controller,
+    controller: controller,
     style: TextStyle(
       color: INPUT_COLOR,
     ),

@@ -25,4 +25,18 @@ void sinkTextFieldCompletion(String tex) {
   //sink text to text field
 }
 ```
-    
+
+- refactor sinkTextField to addToTextField
+
+manager&display controller
+functions get&set content
+manager 
+new functions: 
+    onChanged,
+    set content, get content,
+refactor:
+    add to screen, add to text field
+
+onchange stream
+
+### fork and make hydrated

@@ -26,7 +26,9 @@ class CLIDisplayController {
   }
   set manager(CLIManagerBase interpreter){
     _manager = interpreter;
-    _manager.sink = addToDisplayFunction;
+    _manager.addWidgetToScreen = addToDisplayFunction;
+    _manager.getWidgetsOnScreen = () => _content;
+    _manager.setWidgetsOnScreen = (List<Widget> widgets){_content = widgets; _subject.add(_content);};
     _manager.clear = clear;
   }
 

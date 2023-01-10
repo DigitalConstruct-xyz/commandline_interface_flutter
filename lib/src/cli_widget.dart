@@ -16,7 +16,7 @@ class CLIWidget extends StatelessWidget{
       direction: Axis.vertical,
       children: [
         Expanded(child: cliDisplayBuilder(_displayController.stream)),
-        cliTextFieldBuilder(_textFieldController.inputStream, _textFieldController.outputStream),
+        cliTextFieldBuilder(_textFieldController.submitStream, _textFieldController.autoFillStream, _textFieldController.onChangedStream),
       ]
     );
   }
