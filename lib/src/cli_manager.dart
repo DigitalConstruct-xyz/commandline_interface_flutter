@@ -3,12 +3,12 @@ import 'package:flutter/cupertino.dart';
 abstract class CLIManagerBase {
   Function(Widget) addWidgetToScreen= cliDefault_add_to_screen;
   //get widgets on screen
-  Function getWidgetsOnScreen = cliDefault_add_to_screen;
+  List<Widget> Function() getWidgetsOnScreen = ()=>[];
   Function(List<Widget> widgets) setWidgetsOnScreen = cliDefaultSetWidgetsOnScreen;
   //set widgets on screen
   Function(String) addTextToInputField = cliDefaultTextFieldSink;
   //onChanged 
-  Function(String) inputFieldOnChanged = cliDefaultInputFieldOnChanged;
+  void inputFieldOnChanged(String s){}
   void Function() clear = cliDefaultClear;
   void execute(String command);
 }

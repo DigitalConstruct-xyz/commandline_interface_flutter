@@ -27,13 +27,6 @@ class CLITextFieldController {
   BehaviorSubject<String> get autoFillStream => _autoFillStream;
   BehaviorSubject<String> get onChangedStream => _onChangedStream;
 
-
-  // void sinkTextField(String data) {
-  //   _subject.add(data);
-  // }//
-  //
-
-
   void setMangerSubmitStream(CLIManagerBase manager){
     _submitStream.listen((String s) {
       _manager.execute(s);

@@ -26,9 +26,12 @@ Steps:
  - 1: Create a new class that extends the CLIManagerBase class
    - override the `execute(String command)` method
      - this is where you will implement the logic of your CLI
-       - use `sink(Widget)` to add widget to the CLI
+       - use `addWidgetToScreen(Widget)` to add widget to the CLI
+       - `setWidgetsOnScreen(List<Widget>)` to set the widgets on the CLI
+       - `inputFieldOnChanged(String)` to process changes in the input text field`
        - use `clear()` to clear the CLI
-       - use `sinkTextField(String text)` to add text to the input text field
+       - use `addTextToInputField(String text)` to add text to the input text field
+
  - 2: Create an instance of the new class
  - 3: Add the instance to CLI Widget Generator
    - `CLIWidget cli = CLIWidgetGenerator(CLIManagerBase: instance)`
@@ -41,6 +44,12 @@ import 'package:flutter/material.dart';
 
 class ExampleManager extends CLIManagerBase {
   ExampleManager();
+  
+  @override//optional
+  inputFieldOnChanged(String s) {
+    addWidgetToScreen(Text("text field content changed:"+s));
+  }
+
   @override
   void execute(String command) {
     if(command == 'clear'){
@@ -52,17 +61,20 @@ class ExampleManager extends CLIManagerBase {
       //USE function SINK TO ADD WIDGETS TO DISPLAY
       //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
       //it uses addToDisplayFunction of CLIController
-      sink(
+      addWidgetToScreen(
           Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),)
       );
-      sink(
+      addWidgetToScreen(
           Text('OUTPUT: the user has entered "$command"')
       );
       //ADD TEXT TO TEXT FIELD
-      textFieldSink(command.toUpperCase());
+      addTextToInputField(
+          command.toUpperCase()
+      );
     }
   }
 }
+
 ```
  - step 2 + 3:
 ```dart
