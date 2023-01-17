@@ -31,6 +31,8 @@ Steps:
        - `inputFieldOnChanged(String)` to process changes in the input text field`
        - use `clear()` to clear the CLI
        - use `addTextToInputField(String text)` to add text to the input text field
+       - use `setKeyboaryType(TextInputType)`
+       - 
 
  - 2: Create an instance of the new class
  - 3: Add the instance to CLI Widget Generator

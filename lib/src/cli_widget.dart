@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'cli_display_controller.dart';
 import 'cli_display.dart';
-import 'cli_textfield.dart';
+import 'super_textfield.dart';
 import 'cli_textfield_controller.dart';
 
 class CLIWidget extends StatelessWidget{
@@ -16,8 +16,11 @@ class CLIWidget extends StatelessWidget{
       direction: Axis.vertical,
       children: [
         Expanded(child: cliDisplayBuilder(_displayController.stream)),
-        cliTextFieldBuilder(_textFieldController.submitStream, _textFieldController.autoFillStream, _textFieldController.onChangedStream),
-      ]
+        // Expanded(child:
+        superTextFieldStreamBuilder(_textFieldController.submitStream, _textFieldController.autoFillStream,
+            _textFieldController.onChangedStream, _textFieldController.keyboardTypeStream, _textFieldController.focusNode),
+        // ),
+        ]
     );
   }
 }

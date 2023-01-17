@@ -39,4 +39,25 @@ refactor:
 
 onchange stream
 
-### fork and make hydrated
+
+# new input text field
+- gray trailing sugestions
+- generator 3 streams
+  - 1. text field content
+  1. onchanged
+  2. submit
+  --
+  3. autofill <- inward, create, listen, pass to external to get
+     add to the last part of text with gray color
+    prevent cursor misplacement
+
+
+### keyboard type: text input type stream
+
+### suggester textfield
+### suggestion stream
+
+input text field stream keyboard type - test
+focusnode
+set scroll position stream: scrollPositionedController
+gesture detector stream
