@@ -32,14 +32,14 @@ TextField superTextFieldFactory(BehaviorSubject<String> inputStream, BehaviorSub
 
   return t;
 }
-superTextFieldStreamBuilder(BehaviorSubject<String> autofill, BehaviorSubject<String> submit, BehaviorSubject<String> onChanged, BehaviorSubject<TextInputType> keyboardType,   FocusNode focusNode
-){
-
-  return
-    StreamBuilder(
-        stream: keyboardType.stream,
-        builder: (BuildContext context, AsyncSnapshot<TextInputType> snapshot){
-          return superTextFieldFactory(autofill, submit, onChanged, focusNode, keyboardType: snapshot.data ?? TextInputType.text);
-        }
-    );
-}
+// superTextFieldStreamBuilder(BehaviorSubject<String> autofill, BehaviorSubject<String> submit, BehaviorSubject<String> onChanged, BehaviorSubject<TextInputType> keyboardType,   FocusNode focusNode
+// ){
+//
+//   return
+//     StreamBuilder(
+//         stream: keyboardType.stream,
+//         builder: (BuildContext context, AsyncSnapshot<TextInputType> snapshot){
+//           return superTextFieldFactory(autofill, submit, onChanged, focusNode, keyboardType: snapshot.data ?? TextInputType.text);
+//         }
+//     );
+// }

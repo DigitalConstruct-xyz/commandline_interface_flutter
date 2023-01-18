@@ -17,8 +17,8 @@ class CLIWidget extends StatelessWidget{
       children: [
         Expanded(child: cliDisplayBuilder(_displayController.stream)),
         // Expanded(child:
-        superTextFieldStreamBuilder(_textFieldController.submitStream, _textFieldController.autoFillStream,
-            _textFieldController.onChangedStream, _textFieldController.keyboardTypeStream, _textFieldController.focusNode),
+        superTextFieldFactory(_textFieldController.submitStream, _textFieldController.autoFillStream,
+            _textFieldController.onChangedStream, _textFieldController.focusNode),
         // ),
         ]
     );
