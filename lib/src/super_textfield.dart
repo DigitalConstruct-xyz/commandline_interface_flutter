@@ -1,3 +1,4 @@
+import 'package:commandline_interface/src/config.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -26,6 +27,7 @@ TextField superTextFieldFactory(BehaviorSubject<String> inputStream, BehaviorSub
     focusNode: focusNode,
     autofocus: true,
     controller: controller,
+    decoration: INPUT_DECORATION,
   );
 
   return t;
