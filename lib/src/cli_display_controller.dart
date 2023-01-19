@@ -14,11 +14,16 @@ class CLIDisplayController {
   }
   Stream<List<Widget>> get stream => _subject.stream;
 
-  void _add(Widget data) {
+  void add(Widget data) {
     _content.add(data);
     _subject.add(_content);
   }//
-  Function(Widget) get addToDisplayFunction => _add;
+  // Function(Widget) get add => _add;
+
+  void remove(Widget data) {
+    _content.remove(data);
+    _subject.add(_content);
+  }
 
   void clear() {
     _content = [];
@@ -26,10 +31,11 @@ class CLIDisplayController {
   }
   set manager(CLIManagerBase interpreter){
     _manager = interpreter;
-    _manager.addWidgetToScreen = addToDisplayFunction;
+    _manager.addWidgetToScreen = add;
     _manager.getWidgetsOnScreen = () => _content;
     _manager.setWidgetsOnScreen = (List<Widget> widgets){_content = widgets; _subject.add(_content);};
     _manager.clear = clear;
+    _manager.removeWidgetFromScreen = remove;
   }
 
   void dispose() => _subject.close();
