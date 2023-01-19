@@ -4,20 +4,23 @@ import 'package:flutter/material.dart';
 
 import '../../commandline_interface.dart';
 
-StatelessWidget cliAppGenerator(CLIWidget cliWidget, String title){
-  return CLIApp(cliWidget: cliWidget, title: title);
+ThemeData defaultTheme = ThemeData.dark();
+
+StatelessWidget cliAppGenerator(CLIWidget cliWidget, String title, ThemeData theme) {
+  return CLIApp(cliWidget: cliWidget, title: title, theme: theme);
 }
 
 class CLIApp extends StatelessWidget {
   var cliWidget;
   var title;
+  ThemeData theme;
 
-  CLIApp({Key? key, required this.cliWidget, required this.title}) : super(key: key);
+  CLIApp({Key? key, required this.cliWidget, required this.title, required this.theme}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
-      theme: ThemeData.dark(),
+      theme: theme,
       home: CLIPage(cliWidget: cliWidget, title: title),
     );
   }
