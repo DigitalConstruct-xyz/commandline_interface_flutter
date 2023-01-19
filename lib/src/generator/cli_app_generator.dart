@@ -21,23 +21,27 @@ class CLIApp extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: theme,
-      home: CLIPage(cliWidget: cliWidget, title: title),
+      home: CLIPage(cliWidget: cliWidget
+          // , title: title
+      ),
     );
   }
 }
 
 class CLIPage extends StatelessWidget {
   CLIWidget cliWidget;
-  String title;
-  CLIPage({Key? key, required this.cliWidget, required this.title}) : super(key: key);
+  // String title;
+  CLIPage({Key? key, required this.cliWidget
+    // , required this.title
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: cliWidget,
+      // appBar: AppBar(
+      //   title: Text(title),
+      // ),
+      body: SafeArea(child: cliWidget),
     );
   }
 }
