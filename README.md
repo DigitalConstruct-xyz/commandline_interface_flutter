@@ -1,3 +1,7 @@
+
+#### Functional, will not be updated
+##### For a more flexible cli widget: https://github.com/monki1/command_line_interface_flutter
+
 ## Features
 - A Simple CLI widget for Flutter that
 - can be implemented in 20 lines of code.
