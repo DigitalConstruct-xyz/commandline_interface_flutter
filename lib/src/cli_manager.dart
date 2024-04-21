@@ -9,7 +9,8 @@ abstract class CLIManagerBase {
       cliDefaultSetWidgetsOnScreen;
   //set widgets on screen
   Function(String) addTextToInputField = cliDefaultTextFieldSink;
-  Function(TextInputType) setKeyboardType = (TextInputType tit) {};
+  Function(double) scroll = (double offset) {};
+  // Function(TextInputType) setKeyboardType = (TextInputType tit) {};
   //onChanged
   void inputFieldOnChanged(String s) {}
   void Function() clear = cliDefaultClear;
