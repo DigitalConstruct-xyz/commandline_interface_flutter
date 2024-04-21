@@ -12,7 +12,6 @@ class CLIDisplayController {
       : _subject = BehaviorSubject<List<Widget>>.seeded(content ?? []),
         _content = content ?? [] {
     manager = initManager ?? UnImplementedCLIManager();
-
   }
   Stream<List<Widget>> get stream => _subject.stream;
 
@@ -27,14 +26,13 @@ class CLIDisplayController {
     _subject.add(_content);
   }
 
-    void scroll(double offset) {
+  void scroll(double offset) {
     _scrollController.animateTo(
       offset,
       duration: Duration(milliseconds: 500),
       curve: Curves.ease,
     );
   }
-
 
   void clear() {
     _content = [];
