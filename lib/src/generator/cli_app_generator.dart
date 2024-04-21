@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -6,7 +5,8 @@ import '../../commandline_interface.dart';
 
 ThemeData defaultTheme = ThemeData.dark();
 
-StatelessWidget cliAppGenerator(CLIWidget cliWidget, String title, ThemeData theme) {
+StatelessWidget cliAppGenerator(
+    CLIWidget cliWidget, String title, ThemeData theme) {
   return CLIApp(cliWidget: cliWidget, title: title, theme: theme);
 }
 
@@ -15,7 +15,12 @@ class CLIApp extends StatelessWidget {
   var title;
   ThemeData theme;
 
-  CLIApp({Key? key, required this.cliWidget, required this.title, required this.theme}) : super(key: key);
+  CLIApp(
+      {Key? key,
+      required this.cliWidget,
+      required this.title,
+      required this.theme})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +28,7 @@ class CLIApp extends StatelessWidget {
       theme: theme,
       home: CLIPage(cliWidget: cliWidget
           // , title: title
-      ),
+          ),
     );
   }
 }
@@ -32,8 +37,9 @@ class CLIPage extends StatelessWidget {
   CLIWidget cliWidget;
   // String title;
   CLIPage({Key? key, required this.cliWidget
-    // , required this.title
-  }) : super(key: key);
+      // , required this.title
+      })
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +51,3 @@ class CLIPage extends StatelessWidget {
     );
   }
 }
-
-
-
