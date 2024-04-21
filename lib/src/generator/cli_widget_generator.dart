@@ -6,7 +6,7 @@ CLIWidget cliWidgetGenerator(CLIManagerBase manager) {
   CLIDisplayController cliDisplayController = CLIDisplayController(initManager: manager);
   CLITextFieldController cliTextFieldController = CLITextFieldController(initManager: manager);
 
-  CLIWidget cliWidget = CLIWidget(cliDisplayController, cliTextFieldController);
+  CLIWidget cliWidget = CLIWidget(cliDisplayController, cliTextFieldController, cliDisplayController.scrollController);
   //set manager of textfield controller
   return cliWidget;
 }

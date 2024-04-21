@@ -7,7 +7,7 @@ class CLIDisplayController {
   final BehaviorSubject<List<Widget>> _subject;
   List<Widget> _content = [];
   late CLIManagerBase _manager;
-  late ScrollController _scrollController;
+  final ScrollController scrollController = ScrollController();
   CLIDisplayController({List<Widget>? content, CLIManagerBase? initManager})
       : _subject = BehaviorSubject<List<Widget>>.seeded(content ?? []),
         _content = content ?? [] {
@@ -27,7 +27,8 @@ class CLIDisplayController {
   }
 
   void scroll(double offset) {
-    _scrollController.animateTo(
+    print('scrolling to $offset' );
+    scrollController.animateTo(
       offset,
       duration: Duration(milliseconds: 500),
       curve: Curves.ease,
