@@ -22,28 +22,28 @@ add
 NOTE: This package is also available on pub.dev, but it is not recommended to use it, as it is not updated as often as the GitHub version.
     
 
-
-
-
 ## Usage
 Steps:
  - 1: Create a new class that extends the CLIManagerBase class
    - override the `execute(String command)` method
-     - this is where you will implement the logic of your CLI
-       - use `addWidgetToScreen(Widget)` to add widget to the CLI
-       - `setWidgetsOnScreen(List<Widget>)` to set the widgets on the CLI
-       - `inputFieldOnChanged(String)` to process changes in the input text field`
-       - use `clear()` to clear the CLI
-       - use `addTextToInputField(String text)` to add text to the input text field
-       - use `setKeyboaryType(TextInputType)`
-       - 
+      - ### Methods avaliable in the class:
+        - `addWidgetToScreen(widget: Widget)`: Adds a widget to the screen.
+        - `removeWidgetFromScreen(widget: Widget)`: Removes a widget from the screen.
+        - `getWidgetsOnScreen(): List<Widget>`: Gets the list of widgets currently on the screen.
+        - `setWidgetsOnScreen(widgets: List<Widget>)`: Sets the widgets on the screen.
+        - `addTextToInputField(text: String)`: Adds text to the input field.
+        - `scroll(offset: double)`: Scrolls the display by a specified offset.
+        - `inputFieldOnChanged(s: String)`: Handles changes in the input field.
+        - `clear()`: Clears the display.
 
- - 2: Create an instance of the new class
- - 3: Add the instance to CLI Widget Generator
+
+       
+
+ - 2: Create an instance of the new class and Add the instance to CLI Widget Generator
    - `CLIWidget cli = CLIWidgetGenerator(CLIManagerBase: instance)`
  - 4: Add the CLIWidget instance to widget tree
 
- - step 1:
+ - ### 1 Create a new class that extends the CLIManagerBase
 ```dart
 import 'package:commandline_interface/commandline_interface.dart';
 import 'package:flutter/material.dart';
@@ -61,19 +61,14 @@ class ExampleManager extends CLIManagerBase {
     if(command == 'clear'){
       //clears the screen
       clear();
-      //METHOD clear IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
-      //it uses clear function of CLIController
     } else {
-      //USE function SINK TO ADD WIDGETS TO DISPLAY
-      //METHOD SINK IS SET IN CONSTRUCTOR OF CLIController IN setter of manager
-      //it uses addToDisplayFunction of CLIController
+
       addWidgetToScreen(
           Text('INPUT: $command', style: TextStyle(color: Colors.greenAccent),)
       );
       addWidgetToScreen(
           Text('OUTPUT: the user has entered "$command"')
       );
-      //ADD TEXT TO TEXT FIELD
       addTextToInputField(
           command.toUpperCase()
       );
@@ -82,11 +77,11 @@ class ExampleManager extends CLIManagerBase {
 }
 
 ```
- - step 2 + 3:
+ - ### 2 Use cliWidgetGenerator to set up the manager & get widget 
 ```dart
 final CLIWidget cliWidget = cliWidgetGenerator(ExampleManager());
 ```
- - step 4:  Add the cliWidget to your widget tree.
+ - ### 3  Add the cliWidget to your widget tree.
 ```dart
 void main() {
   runApp(MyApp());
@@ -119,10 +114,7 @@ NOTE: the example above is functional.
 - It's a very basic example, but it shows the basic usage of the package.
 
 ## Additional information
-InputDecoration for the TextField can be set in `lib/src/config.dart`
+InputDecoration for the TextField can be set in [config.dart](lib/src/config.dart)
 ## License
 MIT, see LICENSE file for details.
-- If you use this package, please let me know, I would love to see what you made with it.
-- If you have any questions, feel free to contact me.
-- If you want to offer me a job, please email
-```KXYE111@gmail.com``` asap, I need a job.
+
